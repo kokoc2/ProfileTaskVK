@@ -1,0 +1,47 @@
+* {
+  text-align: center;
+}
+
+.counter {
+  margin-top: 5rem;
+}
+
+.count {
+  color: chocolate;
+  font-size: 3rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  margin: 5px;
+  color: white;
+  border-radius: 0.7rem;
+  font-size: 2rem;
+  padding: 0.5rem 1rem; /* Подкорректировал отступы для лучшего размера кнопок */
+  width: 7rem; /* Подкорректирована ширина для согласованности */
+  transition: background-color 0.3s ease; /* Добавлен плавный переход */
+}
+
+button:hover {
+  opacity: 0.8; /* Добавлен эффект наведения */
+}
+
+.btn_dec {
+  background-color: red;
+}
+
+.btn_inc {
+  background-color: green;
+}
+
+.btn_reset {
+  width: max-content;
+  background-color: grey;
+}
+
+.error {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
