@@ -1,4 +1,4 @@
-import "./App.css";
+import "./style.styl";
 import React from "react";
 import Counter from "./Counter";
 import Button from "./Button";
