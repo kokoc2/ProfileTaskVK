@@ -10,12 +10,12 @@ const Counter = ({ children }) => {
   const decrement = () => setCount(count - 1);
   const reset = () => setCount(0);
 
-  /*  const textElement = document.getElementById("count");
-  const originalText = textElement.textContent;
+  // const textElement = document.getElementById("count");
+  // const originalText = textElement.textContent;
 
-  if (originalText.length > 3) {
-    textElement.textContent = originalText.slice(0, 3) + "+";
-  } */
+  // if (originalText.length > 2) {
+  //   textElement.textContent = originalText.slice(0, 2) + "+";
+  // }
 
   return (
     <div>

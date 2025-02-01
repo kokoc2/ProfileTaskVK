@@ -56,7 +56,12 @@ button:active {
 }
 
 /* pulse */
-
+.red-dot {
+  text-align: center;
+  justify-content: center;
+  display: inline-block;
+  z-index: 1;
+}
 .live-indicator:hover .red-dot {
   background-color: #ff412b; /* Изменение цвета при наведении (анимация) */
 }
@@ -65,8 +70,7 @@ button:active {
 }
 
 .live-indicator {
-  position: relative;
-  display: flex;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   font-size: 22px;
@@ -76,10 +80,12 @@ button:active {
 .live-indicator .pulse {
   position: absolute;
   height: 24px;
-  width: 24px;
+  min-width: 24px;
+  stroke-width: 3;
+  padding: 0px 5px;
   border-radius: 999px;
-  background-color: gray;
-
+  background-color: green;
+  box-sizing: border-box;
   /* display: inline-block; 
   white-space: nowrap; 
   overflow: hidden; 
@@ -96,27 +102,11 @@ button:active {
   animation-delay: 0.25s;
 }
 
-@keyframes red-dot-scale-fade {
-  0% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0;
-    transform: scale(3);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(3);
-  }
-}
-
 /* Адаптивность */
 
 @media (max-width: 1366px) {
   .live-indicator {
-    width: 20px;
+    min-width: 20px;
     height: 20px;
     font-size: 20px;
   }
@@ -130,7 +120,7 @@ button:active {
 }
 @media (max-width: 1024px) {
   .live-indicator {
-    width: 16px;
+    min-width: 16px;
     height: 16px;
     font-size: 16px;
   }
@@ -140,7 +130,7 @@ button:active {
 }
 @media (max-width: 768px) {
   .live-indicator {
-    width: 12px;
+    min-width: 12px;
     height: 12px;
     font-size: 0px;
   }
@@ -157,14 +147,44 @@ button:active {
   .count-display {
     display: block;
   }
+  @keyframes red-dot-scale-fade {
+    0% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0;
+      transform: scale(3);
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(3);
+    }
+  }
 }
 @media (max-width: 360px) {
   .live-indicator {
-    width: 8px;
+    min-width: 8px;
     height: 8px;
     font-size: 0px;
   }
   .live-indicator .pulse {
     animation-name: red-dot-scale-fade;
+  }
+  @keyframes red-dot-scale-fade {
+    0% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0;
+      transform: scale(3);
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(3);
+    }
   }
 }
