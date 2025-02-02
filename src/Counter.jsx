@@ -5,22 +5,35 @@ import React from "react";
 const Counter = ({ children }) => {
   const [count, setCount] = useState(0);
 
-  const increment = () => setCount(count + 1);
-  const abs = () => setCount(count + "a");
-  const decrement = () => setCount(count - 1);
+  const increment = () => {
+    if (count < 99) {
+      setCount(count + 1);
+    } else if (String(count).length < 3) {
+      setCount(count + "+");
+    }
+  };
+  const abs = () => {
+    if (String(count).length < 2) {
+      setCount(count + "a");
+    }
+    if (String(count).length === 2) {
+      setCount(count + "+");
+    }
+  };
+  const decrement = () => {
+    if (typeof count == "number") {
+      setCount(count - 1);
+    }
+  };
   const reset = () => setCount(0);
-
-  // const textElement = document.getElementById("count");
-  // const originalText = textElement.textContent;
-
-  // if (originalText.length > 2) {
-  //   textElement.textContent = originalText.slice(0, 2) + "+";
-  // }
 
   return (
     <div>
       <div className="count-display">
-        Лайки:
+        <div className="like">
+          Лайки: <pre> </pre>
+        </div>
+
         <div class="live-indicator">
           <div class="red-dot" id="count">
             {count}
