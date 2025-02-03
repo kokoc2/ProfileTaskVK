@@ -1,11 +1,10 @@
 import "../App.css";
-// import "./Button.css";
 import { useState } from "react";
 import React from "react";
 
 const Button = ({ increment, decrement, reset, count, abs }) => {
   return (
-    <div className="button-display">
+    <div className={"button-display"}>
       <div className="">
         <div className="buttContent top ">
           <button onClick={increment} id="butLike" className="">

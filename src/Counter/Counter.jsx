@@ -1,5 +1,4 @@
 import "../App.css";
-// import "./Counter.css";
 import { useState } from "react";
 import React from "react";
 
@@ -50,25 +49,10 @@ const Counter = ({ children }) => {
     }, 1000);
   };
 
-  // const loadingButton = document.getElementById("loadButton");
-  // loadingButton.addEventListener("click", () => {
-  //   alert("123");
-  // });
-
-  /*   loadingButton.addEventListener("click", () => {
-    // loadingButton.classList.add("loading");
-    loadingButton.classList.remove("buttContent");
-    // Симуляция запроса
-    setTimeout(() => {
-      loadingButton.classList.remove("loading");
-      // Здесь можно добавить логику для обработки результата запроса
-    }, 3000); // Задержка в 3 секунды для примера
-  }); */
-
   return (
     <div>
       <div className="count-display">
-        <div className="like">Лайки:</div>
+        <div className="like">Лайки: &nbsp;</div>
 
         <div className="live-indicator">
           <div className="red-dot" id="count">
