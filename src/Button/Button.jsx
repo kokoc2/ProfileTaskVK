@@ -7,25 +7,29 @@ const Button = ({ increment, decrement, reset, count, abs }) => {
     <div className={"button-display"}>
       <div className="">
         <div className="buttContent top ">
-          <button onClick={increment} id="butLike" className="">
-            Нравится
+          <button onClick={increment} id="loadingButton">
+            <span id="buttLikeText">Нравится</span>
+            <span id="loadingSpinner" className="hidden"></span>
           </button>
         </div>
         <div className="buttContent botton">
           <button onClick={decrement} id="butDisLike">
-            Не нравится
+            <span id="buttDisLikeText">Не нравится</span>
+            <span id="loadingSpinner2" className="hidden"></span>
           </button>
         </div>
       </div>
       <div>
         <div className="buttContent top">
           <button onClick={abs} id="butABS">
-            Добавить букву
+            <span id="buttABSText">Добавить букву</span>
+            <span id="loadingSpinner3" className="hidden"></span>
           </button>
         </div>
         <div className="buttContent botton">
           <button onClick={reset} id="butReset">
-            Удалить
+            <span id="buttDelText">Удалить</span>
+            <span id="loadingSpinner4" className="hidden"></span>
           </button>
         </div>
       </div>

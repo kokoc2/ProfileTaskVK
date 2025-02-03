@@ -16,9 +16,9 @@
   overflow: hidden; /* Скрываем переполнение */
   text-overflow: ellipsis; /* Добавляем многоточие в конце */
 }
-.buttText {
-}
+
 .top {
+  border: solid 1px black;
   background-color: white;
   border-top-left-radius: 10%;
   border-top-right-radius: 10%;
@@ -29,8 +29,8 @@
   border-bottom-right-radius: 10%;
 }
 button {
+  position: relative;
   font-size: 24px;
-  display: inline-block;
   padding: 16px;
   cursor: pointer;
   border: none;
@@ -41,13 +41,26 @@ button {
   animation-timing-function: cubic-bezier(0, -0.3, 0.5, 1.3);
   transition-duration: 500 ms;
 }
+.buttText {
+  background-color: gray;
+  width: 100%;
+  height: 100%;
+}
 .loading {
   border: 8px solid #f3f3f3; /* Цвет фона */
-  border-top: 8px solid #3498db; /* Цвет верхней части */
+  border-top: 8px solid orange; /* Цвет верхней части */
   border-radius: 50%; /* Делает элемент круглым */
   width: 60px; /* Ширина кружка */
   height: 60px; /* Высота кружка */
   animation: spin 1s linear infinite; /* Анимация вращения */
+  color: orange;
+}
+.loadingSVG0 {
+  z-index: 0;
+}
+.loadingSVG1 {
+  z-index: 1;
+  background-image: url(../Svg/Loader.gif);
 }
 @keyframes spin {
   0% {
@@ -57,14 +70,45 @@ button {
     transform: rotate(360deg);
   }
 }
-button:hover {
+button:hover,
+.buttText:hover {
   opacity: 0.8; /* Добавлен эффект наведения */
   transform: scaleX(105%);
   background-color: orange;
-
   animation-timing-function: cubic-bezier(0, -0.3, 0.5, 1.3);
   transition-duration: 500 ms;
 }
 button:active {
   transform: scaleX(95%);
+}
+
+.hidden {
+  visibility: hidden; /* Элемент скрыт, но место сохраняется */
+  opacity: 0; /* Плавное исчезновение */
+  transition: visibility 0s linear 0.3s, opacity 0.3s ease; /* Плавный переход */
+}
+
+#loadingSpinner,
+#loadingSpinner2,
+#loadingSpinner3,
+#loadingSpinner4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }

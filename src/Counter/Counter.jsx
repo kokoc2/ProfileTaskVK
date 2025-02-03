@@ -1,25 +1,32 @@
 import "../App.css";
 import { useState } from "react";
+import Increment from "../Math/Increment";
 import React from "react";
 
 const Counter = ({ children }) => {
   const [count, setCount] = useState(0);
 
   const increment = () => {
-    const loadingButton = document.getElementById("butLike");
-    loadingButton.classList.add("loading");
+    const buttText = document.getElementById("buttLikeText");
+    const loadingSpinner = document.getElementById("loadingSpinner");
+    buttText.classList.add("hidden");
+    loadingSpinner.classList.remove("hidden");
     setTimeout(() => {
       if (count < 99) {
         setCount(count + 1);
       } else if (String(count).length < 3) {
         setCount(count + "+");
       }
-      loadingButton.classList.remove("loading");
+      buttText.classList.remove("hidden");
+      loadingSpinner.classList.add("hidden");
     }, 1000);
   };
+  // const increment = Increment(setCount, count);
   const abs = () => {
-    const loadingButton = document.getElementById("butABS");
-    loadingButton.classList.add("loading");
+    const buttText = document.getElementById("buttABSText");
+    const loadingSpinner = document.getElementById("loadingSpinner3");
+    buttText.classList.add("hidden");
+    loadingSpinner.classList.remove("hidden");
     setTimeout(() => {
       if (String(count).length < 2) {
         setCount(count + "a");
@@ -27,25 +34,32 @@ const Counter = ({ children }) => {
       if (String(count).length === 2) {
         setCount(count + "+");
       }
-      loadingButton.classList.remove("loading");
+      buttText.classList.remove("hidden");
+      loadingSpinner.classList.add("hidden");
     }, 1000);
   };
   const decrement = () => {
-    const loadingButton = document.getElementById("butDisLike");
-    loadingButton.classList.add("loading");
+    const buttText = document.getElementById("buttDisLikeText");
+    const loadingSpinner = document.getElementById("loadingSpinner2");
+    buttText.classList.add("hidden");
+    loadingSpinner.classList.remove("hidden");
     setTimeout(() => {
       if (typeof count == "number") {
         setCount(count - 1);
       }
-      loadingButton.classList.remove("loading");
+      buttText.classList.remove("hidden");
+      loadingSpinner.classList.add("hidden");
     }, 1000);
   };
   const reset = () => {
-    const loadingButton = document.getElementById("butReset");
-    loadingButton.classList.add("loading");
+    const buttText = document.getElementById("buttDelText");
+    const loadingSpinner = document.getElementById("loadingSpinner4");
+    buttText.classList.add("hidden");
+    loadingSpinner.classList.remove("hidden");
     setTimeout(() => {
       setCount(0);
-      loadingButton.classList.remove("loading");
+      buttText.classList.remove("hidden");
+      loadingSpinner.classList.add("hidden");
     }, 1000);
   };
 
