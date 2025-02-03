@@ -16,7 +16,6 @@
   overflow: hidden; /* Скрываем переполнение */
   text-overflow: ellipsis; /* Добавляем многоточие в конце */
 }
-
 .top {
   border: solid 1px black;
   background-color: white;
@@ -41,27 +40,6 @@ button {
   animation-timing-function: cubic-bezier(0, -0.3, 0.5, 1.3);
   transition-duration: 500 ms;
 }
-.buttText {
-  background-color: gray;
-  width: 100%;
-  height: 100%;
-}
-.loading {
-  border: 8px solid #f3f3f3; /* Цвет фона */
-  border-top: 8px solid orange; /* Цвет верхней части */
-  border-radius: 50%; /* Делает элемент круглым */
-  width: 60px; /* Ширина кружка */
-  height: 60px; /* Высота кружка */
-  animation: spin 1s linear infinite; /* Анимация вращения */
-  color: orange;
-}
-.loadingSVG0 {
-  z-index: 0;
-}
-.loadingSVG1 {
-  z-index: 1;
-  background-image: url(../Svg/Loader.gif);
-}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -81,13 +59,11 @@ button:hover,
 button:active {
   transform: scaleX(95%);
 }
-
 .hidden {
   visibility: hidden; /* Элемент скрыт, но место сохраняется */
   opacity: 0; /* Плавное исчезновение */
   transition: visibility 0s linear 0.3s, opacity 0.3s ease; /* Плавный переход */
 }
-
 #loadingSpinner,
 #loadingSpinner2,
 #loadingSpinner3,
@@ -103,7 +79,6 @@ button:active {
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
-
 @keyframes spin {
   0% {
     transform: translate(-50%, -50%) rotate(0deg);

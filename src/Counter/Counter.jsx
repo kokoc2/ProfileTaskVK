@@ -21,7 +21,7 @@ const Counter = ({ children }) => {
       loadingSpinner.classList.add("hidden");
     }, 1000);
   };
-  // const increment = Increment(setCount, count);
+
   const abs = () => {
     const buttText = document.getElementById("buttABSText");
     const loadingSpinner = document.getElementById("loadingSpinner3");

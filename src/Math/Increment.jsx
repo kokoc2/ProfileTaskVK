@@ -1,5 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import "../App.css";
+import { useState } from "react";
 import App from "../App";
 
 const Increment = ({ setCount, count }) => {

@@ -2,47 +2,47 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Counter from "./Counter";
 
-const js = require("./Counter");
+const js = require("./Counter/Counter");
 
-test("renders counter with initial count", () => {
-  /* render(<Counter />);
-  const countDisplay = screen.getByText(/count:/i);
-  expect(countDisplay).toHaveTextContent("Count: 0"); */
-  expect(js.count).toBe(0);
+describe("increment and decrement functions", () => {
+  beforeEach(() => {
+    jest.useFakeTimers(); // Используем фейковые таймеры
+    count = 0; // Сбрасываем count перед каждым тестом
+  });
+
+  afterEach(() => {
+    jest.useRealTimers(); // Возвращаем настоящие таймеры после каждого теста
+  });
+
+  test("increment should increase count by 1 if count is less than 99", () => {
+    increment(); // Вызываем функцию
+    jest.advanceTimersByTime(1000); // Пропускаем таймер на 1 секунду
+
+    expect(count).toBe(1); // Проверяем, что count увеличился на 1
+  });
+
+  test("increment should add '+' to count if count is 99 or more", () => {
+    count = 99; // Устанавливаем count в 99
+    increment(); // Вызываем функцию
+    jest.advanceTimersByTime(1000); // Пропускаем таймер на 1 секунду
+
+    expect(count).toBe("99+"); // Проверяем, что count стал "99+"
+  });
+
+  test("decrement should decrease count by 1 if count is a number", () => {
+    count = 10; // Устанавливаем count в 10
+    decrement(); // Вызываем функцию
+    jest.advanceTimersByTime(1000); // Пропускаем таймер на 1 секунду
+
+    expect(count).toBe(9); // Проверяем, что count уменьшился на 1
+  });
+
+  test("decrement should not change count if count is not a number", () => {
+    count = "99+"; // Устанавливаем count в "99+"
+    decrement(); // Вызываем функцию
+    jest.advanceTimersByTime(1000); // Пропускаем таймер на 1 секунду
+
+    expect(count).toBe("99+"); // Проверяем, что count не изменился
+  });
 });
-describe("Counter Component", () => {
-  test("renders counter with initial count", () => {
-    render(<Counter />);
-    const countDisplay = screen.getByText(/count:/i);
-    expect(countDisplay).toHaveTextContent("Count: 0");
-  });
-
-  test("increments count when increment button is clicked", () => {
-    render(<Counter />);
-    const incrementButton = screen.getByText(/increment/i);
-    fireEvent.click(incrementButton);
-    const countDisplay = screen.getByText(/count:/i);
-    expect(countDisplay).toHaveTextContent("Count: 1");
-  });
-
-  test("decrements count when decrement button is clicked", () => {
-    render(<Counter />);
-    const decrementButton = screen.getByText(/decrement/i);
-    fireEvent.click(decrementButton);
-    const countDisplay = screen.getByText(/count:/i);
-    expect(countDisplay).toHaveTextContent("Count: -1");
-  });
-
-  test("resets count when reset button is clicked", () => {
-    render(<Counter />);
-    const incrementButton = screen.getByText(/increment/i);
-    fireEvent.click(incrementButton); // Увеличиваем до 1
-    fireEvent.click(incrementButton); // Увеличиваем до 2
-
-    const resetButton = screen.getByText(/reset/i);
-    fireEvent.click(resetButton);
-
-    const countDisplay = screen.getByText(/count:/i);
-    expect(countDisplay).toHaveTextContent("Count: 0");
-  });
 });
