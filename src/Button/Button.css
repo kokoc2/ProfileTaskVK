@@ -1,3 +1,12 @@
+.button-display {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 5%;
+}
 .buttContent {
   display: block;
   padding: 50px;

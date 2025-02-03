@@ -1,42 +1,31 @@
 import "../App.css";
-import "./Button.css";
+// import "./Button.css";
 import { useState } from "react";
 import React from "react";
 
 const Button = ({ increment, decrement, reset, count, abs }) => {
-  const loadingButton = document.getElementById("loadButton");
-
-  /*   loadingButton.addEventListener("click", () => {
-    // loadingButton.classList.add("loading");
-    loadingButton.classList.remove("buttContent");
-    // Симуляция запроса
-    setTimeout(() => {
-      loadingButton.classList.remove("loading");
-      // Здесь можно добавить логику для обработки результата запроса
-    }, 3000); // Задержка в 3 секунды для примера
-  }); */
   return (
-    <div className="count-display">
-      <div>
-        <div className="buttContent top">
-          <button onClick={increment} id="loadButton">
+    <div className="button-display">
+      <div className="">
+        <div className="buttContent top ">
+          <button onClick={increment} id="butLike" className="">
             Нравится
           </button>
         </div>
         <div className="buttContent botton">
-          <button onClick={decrement} id="loadButton">
+          <button onClick={decrement} id="butDisLike">
             Не нравится
           </button>
         </div>
       </div>
       <div>
         <div className="buttContent top">
-          <button onClick={abs} id="loadButton">
+          <button onClick={abs} id="butABS">
             Добавить букву
           </button>
         </div>
         <div className="buttContent botton">
-          <button onClick={reset} id="loadButton">
+          <button onClick={reset} id="butReset">
             Удалить
           </button>
         </div>
@@ -44,4 +33,5 @@ const Button = ({ increment, decrement, reset, count, abs }) => {
     </div>
   );
 };
+
 export default Button;
