@@ -1,6 +1,5 @@
 import "../App.css";
 import { useState } from "react";
-import Increment from "../Math/Increment";
 import React from "react";
 
 const Counter = ({ children }) => {
